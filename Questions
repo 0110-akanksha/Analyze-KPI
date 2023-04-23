@@ -1,7 +1,5 @@
 --What were different geographical units considered?
-
 SELECT DISTINCT geographic_unit from agency_performance_mapping_indicators_annual_1
-
 
 --What were different indicators?
 SELECT DISTINCT indicator from agency_performance_mapping_indicators_annual_1
@@ -11,23 +9,21 @@ SELECT agency, indicator from agency_performance_mapping_indicators_annual_1
 group by agency
 
 --How different community districts performed from fy2011 to fy2015?
-
 SELECT geographic_identifier,fy2011,fy2012,fy2013,fy2014,fy2015 from agency_performance_mapping_indicators_annual_1
 where agency = 'DCA' and geographic_unit ='Community District'
 
 --Which were different community districts considered?
-
 SELECT DISTINCT geographic_identifier FROM agency_performance_mapping_indicators_annual_1
 where geographic_unit = 'Community District'
-
 
 --How many Noise complaints were received in fy2011 and in which agency?
 SELECT agency, geographic_identifier, fy2011 FROM agency_performance_mapping_indicators_annual_1
 where indicator = 'Noise complaints received'
 
-
-
 --What were the indicators used by different agencies?
 SELECT agency,indicator FROM agency_performance_mapping_indicators_annual_1
 GROUP by agency
 
+--What are different indicators for DEP agency?
+SELECT distinct indicator FROM agency_performance_mapping_indicators_annual_1
+WHERE agency='DEP'
